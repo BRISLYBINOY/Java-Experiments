@@ -1,25 +1,29 @@
-
 class Area
-{
-void area(int X)
-{
-System.out.println("the area of the square is :"+X*X+"sq units");
+    {
+    	void area(int a)
+    	{
+    		System.out.println("The area of the square is " +a*a+ "sq units");
+        }
+    	
+    	void area(int b, int c)
+    	{
+    		System.out.println("The area of the rectangle is " +b*c+ "sq units");
+        }
+    	
+
+    	void area1(double r)
+    	{
+    		double d = 3.14*r*r;
+    		System.out.println("The area of the circle is " +3.14*r*r+ "sq units");
+        }
+    	
 }
-void area(int l,int b)
-{
-System.out.println("the area of the rectangle is : "+l*b+"sq units");
-}
-void area(double r)
-{
-double z=3.14*r*r;
-System.out.println("the area of the circle is: "+z+"sq units");
-}
-}
-public class MethodOverloading {
-public static void main(String[] args) {
-Area ar=new Area();
-ar.area(7);
-ar.area(10,70);
-ar.area(7.5);
-}
-}
+    
+    public class MethodOverloading{
+    	public static void main(String[] args) {
+    		Area obj = new Area();
+    		obj.area(7);
+    		obj.area(10,70);
+    		obj.area1(7);
+    	}
+    }
