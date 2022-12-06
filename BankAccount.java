@@ -1,187 +1,139 @@
-
-
-import java.util.*;
-
-public class BankAccount{	{
-		
-		
-		
-		String name;
-		String AccNo;
-		String AccType;
-		int age;
-		int AccBalance;
-		int size;
-		int op;
-	    Scanner scanner = new Scanner(System.in);
-		void create()
-		{
-			int size;
-			System.out.println("Enter the number of customers:");
-			Scanner scanner1 = new Scanner(System.in);
-			size = scanner1.nextInt();
-			String name;
-			String AccNo;
-			String AccType;
-			int age;
-			int AccBalance;
-			int op;
-			for(int i=1; i<size; i++)
-			{
-				System.out.println("Enter the Official Name:");
-				name = scanner1.nextLine();
-				System.out.println("Enter the Official Account Number:");
-				AccNo = scanner1.nextLine();	
-				System.out.println("Enter the Account Type:");
-				AccType = scanner1.nextLine();
-				System.out.println("Enter the age:");
-				age = scanner1.nextInt();
-				System.out.println("Enter the Account Balance:");
-				AccBalance = scanner1.nextInt();
-				
-			}
-		}
-		void display()
-		{
-			String name;
-			String AccNo;
-			String AccType;
-			int age;
-			int AccBalance;
-			int op;		}
-			System.out.println("Your Name is"+name);
-			System.out.println("Your Account Number is"+AccNo);
-			System.out.println("Your Account Type is"+AccType);
-			System.out.println("Your Age is"+age);
-			
-		}
-		void search()
-		{
-			String name;
-			String AccNo;
-			String AccType;
-			int age;
-			int AccBalance;
-			int op;
-			System.out.println("Enter the account number to be checked:");
-			String accno1;
-			Scanner scanner = new Scanner(System.in);
-			accno1 = scanner.nextLine();
-			if(AccNo == accno1)
-			{
-				display();
-			}
-		}
-		
-		Class InsufficientAmountException extends Exception
-		{
-			void InsufficientAmountsException(String msg)
-			{
-				String msg = System.out.println("not able to withdraw");
-			}
-		}
-		
-		
-		Class InvalidAmountException extends Exception
-		{
-			void InvalidAmountsException(String msg)
-			{
-				String msg = System.out.println("not able to deposit");
-			}
-		}
-		
-		
-		
-		void withdraw(int amt)
-		{String name;
-		String AccNo;
-		String AccType;
-		int age;
-		int AccBalance;
-		int op;
-			System.out.println("Enter the amount to withdraw :");
-			int amt1;
-			Scanner scanner = new Scanner(System.in);
-			amt1 = scanner.nextInt();
-			if(amt1>AccBalance) 
-			{
-			   throw 
-			   
-			}
-			else
-			{
-				System.out.println("The current balance is "+(AccBalance-amt));
-			}
-			
-		}
-		
-		
-		void deposit(int amt)
-		{
-			
-			String name;
-			String AccNo;
-			String AccType;
-			int age;
-			int AccBalance;
-			int op;
-			if(amt<0)
-			{
-				
-			}
-			else 
-			{
-				System.out.println("The current balance is"+(AccBalance+amt));
-			}
-		}
-		public class BankAccount{
-		public static void main(String [] args) {
-			int i;
-			String name;
-			String AccNo;
-			String AccType;
-			int age;
-			int AccBalance;
-			int size;
-			int op;
-		}
-		System.out.println("Enter the number of customers:");
-		Scanner scanner1 = new Scanner(System.in);
-		size = scanner1.nextInt();	
-		BankAccount b[] = new BankAccount[size];
-		for(i=!0; i<b.length; i++)
-		{
-			b[i] = new BankAccount();
-			b[i].create();
-		}
-		
-		do
-		{
-			System.out.println("Enter the option to carry on:\n 1.Display \n 2.Search \n 3. Withdraw \n 4. Deposit");
-			op = scanner1.nextInt();
-			
-			switch(op)
-			{
-			case 1:
-				create();				
-				display();
-				break;
-			case 2:
-				search();
-				break;
-			case 3:
-				withdraw();
-				break;
-			case 4:
-				deposit();
-				break;
-			default:
-				System.out.println("Enter the correct choice!! Bye");
-				break;
-			}
-		}
-			while(op<4);
-		}
+import java.util.Random;
+import java.util.Scanner;
+class InvalidAmountException extends Exception
+{
+ InvalidAmountException(String msg) 
+ {
+	 super (msg);
+ }
 }
-		
+class Account 
+{
+ static String name;
+ static long Accno=000000;
+ static long balance;
+ static long amount;
+ static int age;
+public static void CreateAcc()
+{
+Scanner s =new Scanner(System.in); 
+String name;
+String AccNo;
+int age = 0;
+int AccBalance;
+int op;
+System.out.println("Enter the Name: ");
+name=s.nextLine();
+System.out.println("Enter the account Number: ");
 
+Accno=s.nextLong();
+System.out.println("Your new AccNo. is: "+Accno);
+System.out.println("Enter the age: ");
+age=s.nextInt();
+System.out.println("Enter the Amount: ");
+amount=s.nextLong();
+balance=balance+amount;
+}
+public void search()
+ {
+String name;
+String AccNo;
+int age;
+int AccBalance;
+int op;
+System.out.println("Enter the account number to be checked:");
+Long accno1;
+Scanner a = new Scanner(System.in);
+accno1 = a.nextLong();
+if(Accno == accno1)
+  {
+   display();
+  }
+ }
+public static void display()
+ {
+  System.out.println("Name        : "+name);
+  System.out.println("Age         : "+age);
+  System.out.println("Account No. : "+Accno);
+  System.out.println("Balance     : "+balance);
+ }
+public static void Withdraw()
+{
+ int Withdraw;
+ Scanner w = new Scanner(System.in);
+ System.out.println("Enter the amount to be withdrawed: ");
+ Withdraw = w.nextInt();
+ try
+ {
+	if(Withdraw<=0)
+	{
+		throw new InvalidAmountException("Invalid withdrawal amount.");
+	}
+	else
+	{
+		balance=balance-Withdraw;
+	}
+ }
+ catch(Exception e)
+ {
+	 System.out.println(e);
+ }
+}
+public static void deposit()
+ {
+  Scanner dep= new Scanner(System.in);
+  long deposit;
+  System.out.println("Enter the amount to be deposited: ");
+  deposit=dep.nextLong();
+  try
+  {
+	 if(deposit<=0)
+	 {
+		throw new InvalidAmountException("Invalid Amount.");
+	 }
+	 else
+	 {
+		 balance= balance + deposit;
+		 System.out.println("Your current Amount is: "+balance);
+	 }
+  } catch(Exception e)
+  {
+	  System.out.println(e);
+  }
+ }
+}
+public class BankAccount extends Account
+{
+ public static void main(String[] args) 
+ {
+  Scanner k = new Scanner(System.in);
+  int n;
+  int entry=0;
+  System.out.println("Enter the number of customers:");
+  n=k.nextInt();
+  Account cus[]=new Account[n]; 
+  System.out.println("Enter the details of the coustmer");
+  for(int i=0;i<n;i++)
+  {
+	  cus[i]=new Account();
+	  CreateAcc();
+  }
+  for(int i=0;i<=n;i++)
+  {
+  System.out.println("Enter your choice: \n 1->Display\n2->Deposit\n3->withdraw\n4->Exit");  
+  entry=k.nextInt();
+  switch(entry)
+  {
+ 
+  case 1:
+	     display();
+  case 2:
+	    deposit();
+  case 3:
+	    Withdraw();
+  case 4:
+	     break;
+   }
+  }
+ }
+}
